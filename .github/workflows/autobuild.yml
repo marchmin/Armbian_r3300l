@@ -1,0 +1,45 @@
+name: Autobuild Armbian
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#  schedule:
+#    - cron: 0 8 * * 5
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    container: ghcr.io/toltec-dev/qt
+    
+    steps:
+      - name: Initialization environment
+        env:
+         DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt-get -qq update
+          apt-get -qq install git
+        
+      - name: Clone source code
+        run: |
+          git clone https://github.com/ddvk/remarkable2-framebuffer fb
+          
+      - name: Build 
+        run: |
+          pwd
+          cd fb
+          pwd
+          ./dist.sh
+          ls
+        
+      - name: Upload firmware directory
+        uses: actions/upload-artifact@main
+        with:
+          name: framebuffer
+          path: /__w/RM2-FB/RM2-FB/fb/dist/*
