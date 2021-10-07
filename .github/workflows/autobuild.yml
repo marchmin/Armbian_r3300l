@@ -31,9 +31,9 @@ jobs:
           
       - name: Build 
         run: |
-          cp -rf customize armbian/
+          cp -rf customize.patch armbian/
           cd armbian
-          patch -p1 < ./customize
+          patch -p1 < ./customize.patch
           ./compile.sh \
             BOARD=lepotato \
             BRANCH=current \
