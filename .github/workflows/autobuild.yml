@@ -31,14 +31,12 @@ jobs:
       - name: Clone source code
         run: |
           git clone https://github.com/armbian/build.git armbian
-          
-      - name: Build 
-        run: |
-          ls
-          pwd
           cp -rf customize.patch armbian/
           cd armbian
           patch -p1 < ./customize.patch
+          
+      - name: Build 
+        run: |
           ./compile.sh \
             BOARD=lepotato \
             BRANCH=current \
