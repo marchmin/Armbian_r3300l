@@ -44,5 +44,5 @@ jobs:
       - name: Upload firmware directory
         uses: actions/upload-artifact@main
         with:
-          name: framebuffer
-          path: /__w/RM2-FB/RM2-FB/fb/dist/*
+          name: Images
+          path: /home/runner/work/Armbian/Armbian/output/images/*
