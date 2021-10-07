@@ -28,14 +28,14 @@ jobs:
           sudo apt-get -qq update
           sudo apt-get -qq install git
         
-      - name: Clone source code
+      - name: Clone source code & Customize
         run: |
           git clone https://github.com/armbian/build.git armbian
           cp -rf customize.patch armbian/
           cd armbian
           patch -p1 < ./customize.patch
           
-      - name: Build 
+      - name: Compile 
         run: |
           ./compile.sh \
             BOARD=lepotato \
