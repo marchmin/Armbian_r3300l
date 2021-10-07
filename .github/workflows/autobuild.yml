@@ -22,8 +22,8 @@ jobs:
         env:
          DEBIAN_FRONTEND: noninteractive
         run: |
-          apt-get -qq update
-          apt-get -qq install git
+          sudo apt-get -qq update
+          sudo apt-get -qq install git
         
       - name: Clone source code
         run: |
