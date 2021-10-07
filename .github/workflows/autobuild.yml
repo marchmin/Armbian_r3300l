@@ -31,6 +31,8 @@ jobs:
           
       - name: Build 
         run: |
+          ls
+          pwd
           cp -rf customize.patch armbian/
           cd armbian
           patch -p1 < ./customize.patch
