@@ -34,7 +34,6 @@ jobs:
           cd armbian
           ./compile.sh \
             BOARD=lepotato \
-            ARCH=arm64 \
             BRANCH=current \
             RELEASE=focal \
             KERNEL_ONLY=no \
