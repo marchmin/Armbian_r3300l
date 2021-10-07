@@ -16,7 +16,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    container: ghcr.io/toltec-dev/qt
     
     steps:
       - name: Initialization environment
@@ -28,15 +27,20 @@ jobs:
         
       - name: Clone source code
         run: |
-          git clone https://github.com/ddvk/remarkable2-framebuffer fb
+          git clone https://github.com/armbian/build.git armbian
           
       - name: Build 
         run: |
-          pwd
-          cd fb
-          pwd
-          ./dist.sh
-          ls
+          cd armbian
+          ./compile.sh \
+            BOARD=lepotato \
+            ARCH=arm64 \
+            BRANCH=current \
+            RELEASE=focal \
+            KERNEL_ONLY=no \
+            KERNEL_CONFIGURE=no \
+            BUILD_MINIMAL=yes \
+            BUILD_DESKTOP=no
         
       - name: Upload firmware directory
         uses: actions/upload-artifact@main
