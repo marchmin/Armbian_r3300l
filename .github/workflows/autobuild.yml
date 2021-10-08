@@ -37,6 +37,7 @@ jobs:
 
       - name: Compile 
         run: |
+          cd armbian
           ./compile.sh \
             BOARD=lepotato \
             BRANCH=current \
