@@ -34,20 +34,4 @@ jobs:
           cp -rf customize.patch armbian/
           cd armbian
           patch -p1 < ./customize.patch
-          
-      - name: Compile 
-        run: |
-          ./compile.sh \
-            BOARD=lepotato \
-            BRANCH=current \
-            RELEASE=focal \
-            KERNEL_ONLY=no \
-            KERNEL_CONFIGURE=no \
-            BUILD_MINIMAL=yes \
-            BUILD_DESKTOP=no
-        
-      - name: Upload firmware directory
-        uses: actions/upload-artifact@main
-        with:
-          name: Images
-          path: /home/runner/work/Armbian/Armbian/armbian/output/images/*
+          cat config/kernel/linux-meson64-current.config
