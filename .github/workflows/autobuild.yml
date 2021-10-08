@@ -33,7 +33,7 @@ jobs:
           git clone https://github.com/armbian/build.git armbian
           cp -rf customize.patch armbian/
           cd armbian
-          patch -p1 < ./customize.patch
+          # patch -p1 < ./customize.patch
 
       - name: Compile 
         run: |
