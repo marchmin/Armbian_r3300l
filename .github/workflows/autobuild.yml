@@ -31,15 +31,17 @@ jobs:
       - name: Clone Source Code & Customize
         run: |
           git clone https://github.com/armbian/build.git armbian
-          cp -rf customize.patch armbian/
-          cd armbian
+          # cp -rf customize.patch armbian/
+          cp -rf meson-gxl.conf armbian/config/sources/families/
+          cp -rf BesTV-R3300L armbian/config/boards/
+          # cd armbian
           # patch -p1 < ./customize.patch
 
       - name: Compile 
         run: |
           cd armbian
           ./compile.sh \
-            BOARD=lepotato \
+            BOARD=BesTV-R3300L \
             BRANCH=current \
             RELEASE=focal \
             KERNEL_ONLY=no \
