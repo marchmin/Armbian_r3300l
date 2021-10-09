@@ -21,14 +21,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Initialization environment
+      - name: Initialization Environment
         env:
          DEBIAN_FRONTEND: noninteractive
         run: |
           sudo apt-get -qq update
           sudo apt-get -qq install git
         
-      - name: Clone source code & Customize
+      - name: Clone Source Code & Customize
         run: |
           git clone https://github.com/armbian/build.git armbian
           cp -rf customize.patch armbian/
@@ -46,8 +46,6 @@ jobs:
             KERNEL_CONFIGURE=no \
             BUILD_MINIMAL=yes \
             BUILD_DESKTOP=no
-          cd output/images
-          ls -al
           
       - name: Upload firmware directory
         uses: actions/upload-artifact@main
