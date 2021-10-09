@@ -1,0 +1,6 @@
+# Amlogic S905x quad core 1Gb RAM SoC eMMC
+BOARD_NAME="BesTV R3300L"
+BOARDFAMILY="meson-gxl"
+BOARD_DIR=packages/bsp/arm-64
+SERIALCON="ttyAML0"
+ASOUND_STATE="asound.state.mesongx"
