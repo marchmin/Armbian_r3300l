@@ -45,10 +45,13 @@ jobs:
             KERNEL_ONLY=no \
             KERNEL_CONFIGURE=no \
             BUILD_MINIMAL=yes \
-            BUILD_DESKTOP=no
+            BUILD_DESKTOP=no \
+            PROGRESS_LOG_TO_FILE=yes
           
-      - name: Upload firmware directory
+      - name: Upload Image & Logs
         uses: actions/upload-artifact@main
         with:
-          name: Images
-          path: /home/runner/work/Armbian/Armbian/armbian/output/images/*
+          name: Image & Logs
+          path: |
+            /home/runner/work/Armbian/Armbian/armbian/output/debug/*.log
+            /home/runner/work/Armbian/Armbian/armbian/output/images/*
