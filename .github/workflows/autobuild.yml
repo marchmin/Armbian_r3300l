@@ -33,7 +33,8 @@ jobs:
           git clone https://github.com/armbian/build.git armbian
           # cp -rf customize.patch armbian/
           cp -rf meson-gxl.conf armbian/config/sources/families/
-          cp -rf BesTV-R3300L armbian/config/boards/
+          cp -rf bestv-r3300l armbian/config/boards/
+          ls armbian/config/boards
           # cd armbian
           # patch -p1 < ./customize.patch
 
