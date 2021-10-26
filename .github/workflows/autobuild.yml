@@ -40,7 +40,7 @@ jobs:
       - name: Compile 
         run: |
           cd armbian
-          sudo compile.sh \
+          sudo ./compile.sh \
             BOARD=BesTV-R3300L \
             BRANCH=current \
             RELEASE=focal \
